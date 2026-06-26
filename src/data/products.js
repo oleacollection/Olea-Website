@@ -128,3 +128,27 @@ export const categories = [
   { id: "dresses", label: "Dresses" },
   { id: "accessories", label: "Accessories" },
 ];
+
+// Alias for clarity in the new category hierarchy
+export const clothingSubcategories = categories;
+
+export const mainCategories = [
+  {
+    id: "clothing",
+    label: "Clothing",
+    tagline: "Curated for the effortlessly cool",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=1200&fit=crop&q=80",
+  },
+  {
+    id: "corporate-gifting",
+    label: "Corporate Gifting",
+    tagline: "Elevate your professional relationships",
+    image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=800&h=1200&fit=crop&q=80",
+  },
+  {
+    id: "personal-gifting",
+    label: "Personal Gifting",
+    tagline: "Thoughtful gifts for every occasion",
+    image: "https://images.unsplash.com/photo-1549465220-1a8b9238f7e1?w=800&h=1200&fit=crop&q=80",
+  },
+];

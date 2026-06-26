@@ -6,18 +6,18 @@ export default function Footer() {
 
       <nav className="footer__links" aria-label="Footer links">
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/theoleacollection/"
           target="_blank"
           rel="noopener noreferrer"
           className="footer__link"
         >
           Instagram
         </a>
-        <a href="mailto:hello@oleacollection.com" className="footer__link">
+        <a href="mailto:olea.customercare@gmail.com" className="footer__link">
           Email
         </a>
         <a
-          href="https://wa.me/919999999999"
+          href="https://wa.me/917428281008"
           target="_blank"
           rel="noopener noreferrer"
           className="footer__link"
