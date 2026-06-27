@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import CategorySelector from "./components/CategorySelector";
 import ProductGrid from "./components/ProductGrid";
-import EmptyCatalogue from "./components/EmptyCatalogue";
+import GiftingProductGrid from "./components/GiftingProductGrid";
 import CartDrawer from "./components/CartDrawer";
 import CartFAB from "./components/CartFAB";
 import Footer from "./components/Footer";
@@ -72,6 +72,7 @@ export default function App() {
           onCategoryChange={setActiveCategory}
           activeMainCategory={activeMainCategory}
           onBackToCategories={handleBackToCategories}
+          onMainCategoryChange={handleSelectMainCategory}
         />
         <div ref={heroRef}>
           <Hero />
@@ -92,11 +93,12 @@ export default function App() {
           </div>
         )}
 
-        {/* Corporate/Personal Gifting: show empty catalogue */}
+        {/* Corporate/Personal Gifting: show gifting product grid */}
         {(activeMainCategory === "corporate-gifting" ||
           activeMainCategory === "personal-gifting") && (
-          <EmptyCatalogue
+          <GiftingProductGrid
             categoryId={activeMainCategory}
+            onGiftAnimation={handleGiftAnimation}
             onBack={handleBackToCategories}
           />
         )}

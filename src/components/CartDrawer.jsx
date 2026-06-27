@@ -91,7 +91,13 @@ export default function CartDrawer({ isOpen, onClose }) {
                 />
                 <div className="cart-item__details">
                   <span className="cart-item__name">{item.product.name}</span>
-                  <span className="cart-item__size">Size: {item.size}</span>
+                  <span className="cart-item__size">
+                    {item.meta?.customText
+                      ? `✏️ "${item.meta.customText}"`
+                      : item.meta?.bulkQty
+                        ? `📦 Bulk: ${item.quantity} units`
+                        : `Size: ${item.size}`}
+                  </span>
                   <span className="cart-item__price">
                     ₹{(item.product.price * item.quantity).toLocaleString("en-IN")}
                   </span>

@@ -8,11 +8,17 @@ const OWNER_PHONE = "917428281008";
 export function generateOrderMessage(cartItems, total) {
   const lines = cartItems.map((item) => {
     const lineTotal = item.product.price * item.quantity;
-    return `${item.quantity}× ${item.product.name} (${item.size}) — ₹${lineTotal.toLocaleString("en-IN")}`;
+    let detail = item.size;
+    if (item.meta?.customText) {
+      detail = `Custom: "${item.meta.customText}"`;
+    } else if (item.meta?.bulkQty) {
+      detail = `Bulk: ${item.quantity} units`;
+    }
+    return `${item.quantity}× ${item.product.name} (${detail}) — ₹${lineTotal.toLocaleString("en-IN")}`;
   });
 
   return [
-    "🫒 *Olea Collection Order*",
+    "*Olea Collection Order*",
     "━━━━━━━━━━━━━━━━━━━━",
     ...lines,
     "━━━━━━━━━━━━━━━━━━━━",

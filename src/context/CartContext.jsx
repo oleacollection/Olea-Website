@@ -2,7 +2,9 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 
 const CartContext = createContext();
 
-// ─── Cart item shape: { product, size, quantity } ───
+// ─── Cart item shape: { product, size, quantity, meta? } ───
+// meta may contain: { customText } for personal gifting
+//                    { bulkQty } for corporate gifting
 
 const STORAGE_KEY = "olea-cart";
 
@@ -30,19 +32,22 @@ function cartReducer(state, action) {
   switch (action.type) {
     case "ADD": {
       const key = lineKey(action.product.id, action.size);
+      const meta = action.meta || {};
+      // For corporate gifting, quantity comes from bulkQty
+      const addQty = meta.bulkQty || 1;
       const existing = state.find(
         (item) => lineKey(item.product.id, item.size) === key
       );
       if (existing) {
         next = state.map((item) =>
           lineKey(item.product.id, item.size) === key
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + addQty, meta: { ...item.meta, ...meta } }
             : item
         );
       } else {
         next = [
           ...state,
-          { product: action.product, size: action.size, quantity: 1 },
+          { product: action.product, size: action.size, quantity: addQty, meta },
         ];
       }
       break;
@@ -98,8 +103,8 @@ export function CartProvider({ children }) {
     return () => window.removeEventListener("storage", handler);
   }, []);
 
-  const addToCart = (product, size) =>
-    dispatch({ type: "ADD", product, size });
+  const addToCart = (product, size, meta) =>
+    dispatch({ type: "ADD", product, size, meta });
 
   const removeFromCart = (productId, size) =>
     dispatch({ type: "REMOVE", productId, size });

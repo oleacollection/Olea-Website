@@ -8,6 +8,7 @@ export default function Header({
   onCategoryChange,
   activeMainCategory,
   onBackToCategories,
+  onMainCategoryChange,
 }) {
   const [show, setShow] = useState(false);
   const navRef = useRef(null);
@@ -94,8 +95,26 @@ export default function Header({
             </span>
           </nav>
         ) : (
-          <nav className="site-header__nav site-header__nav--minimal" aria-label="Navigation">
-            <span className="site-header__current-category">Collections</span>
+          <nav className="site-header__nav" ref={navRef} aria-label="Main categories">
+            {mainCategories.map((cat) => (
+              <button
+                key={cat.id}
+                id={`pill-main-${cat.id}`}
+                className={`pill-nav__item${activeMainCategory === cat.id ? " active" : ""}`}
+                onClick={() => {
+                  onMainCategoryChange(cat.id);
+                  setTimeout(() => {
+                    const content = document.getElementById("category-content");
+                    if (content) {
+                      content.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                  }, 100);
+                }}
+                aria-pressed={activeMainCategory === cat.id}
+              >
+                {cat.label}
+              </button>
+            ))}
           </nav>
         )}
 
