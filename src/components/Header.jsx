@@ -45,7 +45,7 @@ export default function Header({
         {/* Left: Brand */}
         <div className="site-header__brand">
           <img src="/logo.png" alt="Olea" className="site-header__logo" />
-          <span className="site-header__name">Olea Collection</span>
+          <span className="site-header__name">Olea</span>
         </div>
 
         {/* Center: Context-dependent navigation */}
@@ -119,7 +119,7 @@ export default function Header({
         )}
 
         {/* Right: Tagline (desktop only) */}
-        <span className="site-header__tagline">curated for the effortlessly cool</span>
+        <span className="site-header__tagline">Gifts that slay, Your way</span>
       </div>
     </header>
   );

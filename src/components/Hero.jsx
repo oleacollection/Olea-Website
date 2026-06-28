@@ -6,8 +6,8 @@ export default function Hero() {
         alt="Olea Collection logo"
         className="hero__logo"
       />
-      <h1 className="hero__brand">Olea Collection</h1>
-      <p className="hero__tagline">curated for the effortlessly cool</p>
+      <h1 className="hero__brand">OLEA</h1>
+      <p className="hero__tagline">Gifts that slay, Your way</p>
 
       <div className="hero__scroll-indicator">
         <span>Scroll</span>

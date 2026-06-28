@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { corporateGiftingProducts, personalGiftingProducts } from "../data/products";
 import GiftingProductCard from "./GiftingProductCard";
 
-export default function GiftingProductGrid({ categoryId, onGiftAnimation, onBack }) {
+export default function GiftingProductGrid({ categoryId, onOpenModal, onBack }) {
   const gridRef = useRef(null);
 
   const products =
@@ -91,10 +91,11 @@ export default function GiftingProductGrid({ categoryId, onGiftAnimation, onBack
           <GiftingProductCard
             key={product.id}
             product={product}
-            onGiftAnimation={onGiftAnimation}
+            onOpenModal={onOpenModal}
           />
         ))}
       </div>
     </section>
   );
 }
+

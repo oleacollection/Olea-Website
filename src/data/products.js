@@ -9,6 +9,11 @@ const products = [
     price: 1299,
     category: "tops",
     image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&h=800&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&h=800&fit=crop&q=80"
+    ],
     description: "Relaxed-fit linen blend t-shirt in sage. Breathable, effortless.",
     sizes: ["S", "M", "L", "XL"],
   },
@@ -18,6 +23,10 @@ const products = [
     price: 1899,
     category: "tops",
     image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&h=800&fit=crop&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&h=800&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&h=800&fit=crop&q=80"
+    ],
     description: "Chunky knit polo with dropped shoulders. Cozy meets cool.",
     sizes: ["S", "M", "L", "XL"],
   },
@@ -67,6 +76,11 @@ const products = [
     price: 2799,
     category: "dresses",
     image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&h=800&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=800&fit=crop&q=80"
+    ],
     description: "Satin slip midi dress in champagne. Elegance, simplified.",
     sizes: ["S", "M", "L", "XL"],
   },
@@ -130,6 +144,10 @@ export const corporateGiftingProducts = [
     category: "corporate-gifting",
     type: "corporate",
     image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=600&h=800&fit=crop&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=600&h=800&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1517842645767-c639042777db?w=600&h=800&fit=crop&q=80"
+    ],
     description: "Premium hardbound notebooks with custom branding. Ideal for conferences and onboarding kits.",
     minQty: 25,
   },
@@ -214,6 +232,10 @@ export const personalGiftingProducts = [
     category: "personal-gifting",
     type: "personal",
     image: "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=600&h=800&fit=crop&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=600&h=800&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=600&h=800&fit=crop&q=80"
+    ],
     description: "Soy wax candle in a ceramic jar with a custom printed label. Warmth with a personal touch.",
     customPlaceholder: "Enter label text (e.g. a name or quote)",
   },

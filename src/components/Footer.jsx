@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="footer" id="footer">
       <h2 className="footer__brand">Olea Collection</h2>
-      <p className="footer__tagline">curated for the effortlessly cool</p>
+      <p className="footer__tagline">gifts that slay, your way</p>
 
       <nav className="footer__links" aria-label="Footer links">
         <a

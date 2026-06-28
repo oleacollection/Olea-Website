@@ -9,6 +9,7 @@ import CartDrawer from "./components/CartDrawer";
 import CartFAB from "./components/CartFAB";
 import Footer from "./components/Footer";
 import GiftBoxAnimation from "./components/GiftBoxAnimation";
+import ProductModal from "./components/ProductModal";
 
 export default function App() {
   const [activeMainCategory, setActiveMainCategory] = useState(null);
@@ -16,7 +17,9 @@ export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [heroVisible, setHeroVisible] = useState(true);
   const [giftAnimation, setGiftAnimation] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const heroRef = useRef(null);
+
 
   // Track hero visibility with IntersectionObserver
   useEffect(() => {
@@ -88,7 +91,7 @@ export default function App() {
           <div id="category-content">
             <ProductGrid
               activeCategory={activeCategory}
-              onGiftAnimation={handleGiftAnimation}
+              onOpenModal={setSelectedProduct}
             />
           </div>
         )}
@@ -98,7 +101,7 @@ export default function App() {
           activeMainCategory === "personal-gifting") && (
           <GiftingProductGrid
             categoryId={activeMainCategory}
-            onGiftAnimation={handleGiftAnimation}
+            onOpenModal={setSelectedProduct}
             onBack={handleBackToCategories}
           />
         )}
@@ -109,6 +112,13 @@ export default function App() {
           isOpen={cartOpen}
           onClose={() => setCartOpen(false)}
         />
+        {selectedProduct && (
+          <ProductModal
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+            onGiftAnimation={handleGiftAnimation}
+          />
+        )}
         <GiftBoxAnimation
           animationData={giftAnimation}
           onComplete={handleGiftComplete}

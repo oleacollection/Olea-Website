@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import products from "../data/products";
 import ProductCard from "./ProductCard";
 
-export default function ProductGrid({ activeCategory, onGiftAnimation }) {
+export default function ProductGrid({ activeCategory, onOpenModal }) {
   const gridRef = useRef(null);
 
   const filtered =
@@ -53,7 +53,7 @@ export default function ProductGrid({ activeCategory, onGiftAnimation }) {
             <ProductCard
               key={product.id}
               product={product}
-              onGiftAnimation={onGiftAnimation}
+              onOpenModal={onOpenModal}
             />
           ))
         ) : (
@@ -66,3 +66,4 @@ export default function ProductGrid({ activeCategory, onGiftAnimation }) {
     </section>
   );
 }
+
