@@ -217,11 +217,10 @@ h3 {
   text-align: center;
   padding: var(--space-xl);
   overflow: hidden;
-  background: linear-gradient(165deg,
-      var(--olive-900) 0%,
-      var(--brown-900) 40%,
-      var(--olive-700) 80%,
-      var(--brown-800) 100%);
+  background-image: linear-gradient(rgba(46, 59, 46, 0.45), rgba(46, 59, 46, 0.65)), url('/bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 
@@ -2689,13 +2688,23 @@ body.drawer-open {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes modalEnter {
@@ -2703,6 +2712,7 @@ body.drawer-open {
     opacity: 0;
     transform: scale(0.95) translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -2714,6 +2724,7 @@ body.drawer-open {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
+
   to {
     opacity: 0;
     transform: scale(0.95) translateY(10px);
