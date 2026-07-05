@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { categories } from "../data/products";
-import { mainCategories } from "../data/products";
+import { mainCategories } from "../data/products"; // Still needed for currentMainCat lookup
+
+// Only show these subcategories for now — add more IDs here to enable them
+const visibleSubcategoryIds = ["all", "tops"];
+const visibleCategories = categories.filter((c) => visibleSubcategoryIds.includes(c.id));
 
 export default function Header({
   heroVisible,
@@ -55,17 +59,8 @@ export default function Header({
             ref={navRef}
             aria-label="Clothing subcategories"
           >
-            <button
-              className="pill-nav__item pill-nav__item--back"
-              onClick={onBackToCategories}
-              aria-label="Back to categories"
-              id="header-back-btn"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-            {categories.map((cat) => (
+            {/* Back button hidden — re-enable when other categories are ready */}
+            {visibleCategories.map((cat) => (
               <button
                 key={cat.id}
                 id={`pill-${cat.id}`}
@@ -95,27 +90,8 @@ export default function Header({
             </span>
           </nav>
         ) : (
-          <nav className="site-header__nav" ref={navRef} aria-label="Main categories">
-            {mainCategories.map((cat) => (
-              <button
-                key={cat.id}
-                id={`pill-main-${cat.id}`}
-                className={`pill-nav__item${activeMainCategory === cat.id ? " active" : ""}`}
-                onClick={() => {
-                  onMainCategoryChange(cat.id);
-                  setTimeout(() => {
-                    const content = document.getElementById("category-content");
-                    if (content) {
-                      content.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }
-                  }, 100);
-                }}
-                aria-pressed={activeMainCategory === cat.id}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </nav>
+          /* Hidden: main category pills — re-enable when other categories are ready */
+          null
         )}
 
         {/* Right: Tagline (desktop only) */}

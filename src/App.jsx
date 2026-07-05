@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { CartProvider } from "./context/CartContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import CategorySelector from "./components/CategorySelector";
+// import CategorySelector from "./components/CategorySelector"; // Hidden: re-enable when other categories are ready
 import ProductGrid from "./components/ProductGrid";
 import GiftingProductGrid from "./components/GiftingProductGrid";
 import CartDrawer from "./components/CartDrawer";
@@ -12,7 +12,7 @@ import GiftBoxAnimation from "./components/GiftBoxAnimation";
 import ProductModal from "./components/ProductModal";
 
 export default function App() {
-  const [activeMainCategory, setActiveMainCategory] = useState(null);
+  const [activeMainCategory, setActiveMainCategory] = useState("clothing");
   const [activeCategory, setActiveCategory] = useState("all");
   const [cartOpen, setCartOpen] = useState(false);
   const [heroVisible, setHeroVisible] = useState(true);
@@ -54,17 +54,17 @@ export default function App() {
   }, []);
 
   // Handle going back to category selector
-  const handleBackToCategories = useCallback(() => {
-    setActiveMainCategory(null);
-    setActiveCategory("all");
-
-    setTimeout(() => {
-      const selector = document.getElementById("category-selector");
-      if (selector) {
-        selector.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 100);
-  }, []);
+  // Hidden: re-enable when other categories are ready
+  // const handleBackToCategories = useCallback(() => {
+  //   setActiveMainCategory(null);
+  //   setActiveCategory("all");
+  //   setTimeout(() => {
+  //     const selector = document.getElementById("category-selector");
+  //     if (selector) {
+  //       selector.scrollIntoView({ behavior: "smooth", block: "start" });
+  //     }
+  //   }, 100);
+  // }, []);
 
   return (
     <CartProvider>
@@ -74,17 +74,17 @@ export default function App() {
           activeCategory={activeCategory}
           onCategoryChange={setActiveCategory}
           activeMainCategory={activeMainCategory}
-          onBackToCategories={handleBackToCategories}
+          onBackToCategories={null}
           onMainCategoryChange={handleSelectMainCategory}
         />
         <div ref={heroRef}>
           <Hero />
         </div>
 
-        {/* Category selector — always visible below hero */}
-        {!activeMainCategory && (
+        {/* Category selector — hidden until other categories are ready */}
+        {/* {!activeMainCategory && (
           <CategorySelector onSelectCategory={handleSelectMainCategory} />
-        )}
+        )} */}
 
         {/* Clothing: show product grid with subcategory filters */}
         {activeMainCategory === "clothing" && (

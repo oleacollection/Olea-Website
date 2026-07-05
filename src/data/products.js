@@ -5,134 +5,126 @@ const products = [
   // ─── TOPS ───
   {
     id: 1,
-    name: "Linen Blend Tee",
-    price: 1299,
+    name: "Money Is The Motive",
+    price: 799,
     category: "tops",
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop&q=80",
+    image: '/catalogue/1_1.jpeg',
     images: [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&h=800&fit=crop&q=80"
+      "/catalogue/1_1.jpeg",
+      "/catalogue/1_2.jpeg",
+      "/catalogue/1_3.jpeg"
     ],
-    description: "Relaxed-fit linen blend t-shirt in sage. Breathable, effortless.",
+    description: "240GSM Acid Wash Premium Oversized Tee",
     sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 2,
-    name: "Oversized Knit Polo",
-    price: 1899,
+    name: "Pink Phantom",
+    price: 799,
     category: "tops",
-    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&h=800&fit=crop&q=80",
+    image: "/catalogue/2_1.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&h=800&fit=crop&q=80"
+      "/catalogue/2_1.jpeg",
+      "/catalogue/2_2.jpeg",
+      "/catalogue/2_3.jpeg"
     ],
-    description: "Chunky knit polo with dropped shoulders. Cozy meets cool.",
+    description: "240GSM Acid Wash Premium Oversized Tee",
     sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 3,
-    name: "Cropped Henley",
-    price: 999,
+    name: "Marlboro Red",
+    price: 699,
     category: "tops",
-    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop&q=80",
-    description: "Ribbed cropped henley in cream. The everyday essential.",
+    image: "/catalogue/3_1.jpeg",
+    images: [
+      "/catalogue/3_1.jpeg",
+      "/catalogue/3_2.jpeg",
+      "/catalogue/3_3.jpeg",
+    ],
+    description: "240GSM White premium oversized tee with edgy Marlboro design built for the OGs",
     sizes: ["S", "M", "L", "XL"],
   },
-
-  // ─── BOTTOMS ───
   {
     id: 4,
-    name: "Wide Leg Trousers",
-    price: 2199,
-    category: "bottoms",
-    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=800&fit=crop&q=80",
-    description: "High-rise wide leg trousers in olive. Flowy and flattering.",
+    name: "404: Love Found",
+    price: 699,
+    category: "tops",
+    image: "/catalogue/8_1.jpeg",
+    images: [
+      "/catalogue/8_1.jpeg",
+      "/catalogue/8_2.jpeg",
+      "/catalogue/8_3.jpeg",
+    ],
+    description: "240GSM Olive premium oversized tee made for mixed signals and questionable decisions",
     sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 5,
-    name: "Cargo Joggers",
-    price: 1799,
-    category: "bottoms",
-    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&h=800&fit=crop&q=80",
-    description: "Relaxed cargo joggers with elastic cuffs. Street-ready.",
+    name: "God's Plan Tee",
+    price: 999,
+    category: "tops",
+    image: "/catalogue/5_1.jpeg",
+    images: [
+      "/catalogue/5_1.jpeg",
+      "/catalogue/5_2.jpeg"
+    ],
+    description: "240GSM Fullsleeve tshirt, light and breathable waffle fabric, cool screen-printed design both on front and sleeves",
     sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 6,
-    name: "Pleated Mini Skirt",
-    price: 1499,
-    category: "bottoms",
-    image: "https://images.unsplash.com/photo-1583496661160-fb5886a0uj9a?w=600&h=800&fit=crop&q=80",
-    description: "Pleated mini skirt in warm brown. Retro with a twist.",
+    name: "Waffle Tank",
+    price: 499,
+    category: "tops",
+    image: "/catalogue/6_1.jpeg",
+    images: [
+      "/catalogue/6_1.jpeg",
+      "/catalogue/6_2.jpeg",
+    ],
+    description: "240GSM Cutsleeve tank, light and breathable waffle fabric",
     sizes: ["S", "M", "L", "XL"],
   },
-
-  // ─── DRESSES ───
   {
     id: 7,
-    name: "Slip Midi Dress",
-    price: 2799,
-    category: "dresses",
-    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop&q=80",
+    name: "Icarus' Tee",
+    price: 999,
+    category: "tops",
+    image: "/catalogue/7_1.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=800&fit=crop&q=80"
+      "/catalogue/7_1.jpeg",
+      "/catalogue/7_2.jpeg"
     ],
-    description: "Satin slip midi dress in champagne. Elegance, simplified.",
+    description: "240GSM Fullsleeve tshirt, light and breathable waffle fabric, cool screen-printed design both on front and sleeves",
     sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 8,
-    name: "Linen Shirt Dress",
-    price: 2499,
-    category: "dresses",
-    image: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d44?w=600&h=800&fit=crop&q=80",
-    description: "Belted linen shirt dress in olive. From brunch to sunset.",
+    name: "Solid Tee Pair",
+    price: 599,
+    category: "tops",
+    image: "/catalogue/4_1.jpeg",
+    images: [
+      "/catalogue/4_1.jpeg",
+      "/catalogue/4_2.jpeg",
+    ],
+    description: "Get 2 oversized solid tees at just ₹ 599",
     sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 9,
-    name: "Knit Bodycon Dress",
-    price: 1999,
-    category: "dresses",
-    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop&q=80",
-    description: "Ribbed knit bodycon in earth brown. Figure-hugging perfection.",
+    name: "Customized Oversized Tshirt",
+    price: 799,
+    category: "tops",
+    image: "/catalogue/9_1.jpeg",
+    images: [
+      "/catalogue/9_1.jpeg",
+    ],
+    description: "Create an oversized tee that’s 100% you. Add your own text, graphics, memories, inside jokes, or whatever lives rent-free in your head",
     sizes: ["S", "M", "L", "XL"],
   },
-
-  // ─── ACCESSORIES ───
-  {
-    id: 10,
-    name: "Woven Tote Bag",
-    price: 1699,
-    category: "accessories",
-    image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&h=800&fit=crop&q=80",
-    description: "Hand-woven tote in natural cream. Your new everyday carry.",
-    sizes: ["One Size"],
-  },
-  {
-    id: 11,
-    name: "Silk Hair Scarf",
-    price: 699,
-    category: "accessories",
-    image: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=600&h=800&fit=crop&q=80",
-    description: "Printed silk scarf in olive tones. Tie it any way you like.",
-    sizes: ["One Size"],
-  },
-  {
-    id: 12,
-    name: "Chunky Hoop Earrings",
-    price: 599,
-    category: "accessories",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=800&fit=crop&q=80",
-    description: "Gold-tone chunky hoops. The finishing touch.",
-    sizes: ["One Size"],
-  },
-];
-
+  
+]
 export default products;
 
 // ─── CORPORATE GIFTING PRODUCTS ───
