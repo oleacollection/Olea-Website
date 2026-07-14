@@ -123,7 +123,42 @@ const products = [
     description: "Create an oversized tee that’s 100% you. Add your own text, graphics, memories, inside jokes, or whatever lives rent-free in your head",
     sizes: ["S", "M", "L", "XL"],
   },
-  
+  {
+    id: 10,
+    name: "Women's Classic Tank Top",
+    price: 399,
+    category: "tank-tops",
+    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=800&fit=crop&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=800&fit=crop&q=80"
+    ],
+    description: "[PLACEHOLDER] Description for women's classic tank top.",
+    sizes: ["S", "M", "L", "XL"],
+  },
+  {
+    id: 11,
+    name: "Women's Ribbed Tank",
+    price: 499,
+    category: "tank-tops",
+    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop&q=80"
+    ],
+    description: "[PLACEHOLDER] Description for women's ribbed tank top.",
+    sizes: ["S", "M", "L", "XL"],
+  },
+  {
+    id: 12,
+    name: "Women's Crop Tank Top",
+    price: 599,
+    category: "tank-tops",
+    image: "https://images.unsplash.com/photo-1509180775533-3d758066bb73?w=600&h=800&fit=crop&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1509180775533-3d758066bb73?w=600&h=800&fit=crop&q=80"
+    ],
+    description: "[PLACEHOLDER] Description for women's crop tank top.",
+    sizes: ["S", "M", "L"],
+  },
 ]
 export default products;
 
@@ -269,6 +304,7 @@ export const categories = [
   { id: "bottoms", label: "Bottoms" },
   { id: "dresses", label: "Dresses" },
   { id: "accessories", label: "Accessories" },
+  { id: "tank-tops", label: "Tank Tops" },
 ];
 
 // Alias for clarity in the new category hierarchy
