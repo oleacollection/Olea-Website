@@ -20,6 +20,7 @@ export default function ProductCard({ product, onOpenModal }) {
           alt={product.name}
           className="product-card__image"
           loading="lazy"
+          style={product.category === 'accessories' ? { objectFit: 'contain' } : undefined}
         />
         <span className="product-card__badge">{product.category}</span>
         <div className="product-card__quick-view">

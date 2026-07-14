@@ -125,39 +125,56 @@ const products = [
   },
   {
     id: 10,
-    name: "Women's Classic Tank Top",
-    price: 399,
+    name: "White Baby-Tee",
+    price: 499,
     category: "tops",
-    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=800&fit=crop&q=80",
+    image: "/catalogue/10_1.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=800&fit=crop&q=80"
+      "/catalogue/10_1.jpeg",
+      "/catalogue/10_2.jpeg",
     ],
-    description: "[PLACEHOLDER] Description for women's classic tank top.",
-    sizes: ["S", "M", "L", "XL"],
+    description: "Our 180GSM soft and breathable baby tee is tailored for the perfect snug fit. It hugs your curves just right while keeping you comfy all day long.",
+    sizes: ["XS", "S", "M", "L"],
   },
   {
     id: 11,
-    name: "Women's Ribbed Tank",
+    name: "Yellow Baby-Tee",
     price: 499,
     category: "tops",
-    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop&q=80",
+    image: "/catalogue/11_1.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop&q=80"
+      "/catalogue/11_1.jpeg",
+      "/catalogue/11_2.jpeg",
     ],
-    description: "[PLACEHOLDER] Description for women's ribbed tank top.",
-    sizes: ["S", "M", "L", "XL"],
+    description: "Our 180GSM soft and breathable baby tee is tailored for the perfect snug fit. It hugs your curves just right while keeping you comfy all day long.",
+    sizes: ["XS", "S", "M", "L"],
   },
   {
     id: 12,
-    name: "Women's Crop Tank Top",
-    price: 599,
+    name: "Pink Baby-Tee",
+    price: 499,
     category: "tops",
-    image: "https://images.unsplash.com/photo-1509180775533-3d758066bb73?w=600&h=800&fit=crop&q=80",
+    image: "/catalogue/12_1.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1509180775533-3d758066bb73?w=600&h=800&fit=crop&q=80"
+      "/catalogue/12_1.jpeg",
+      "/catalogue/12_2.jpeg",
     ],
-    description: "[PLACEHOLDER] Description for women's crop tank top.",
-    sizes: ["S", "M", "L"],
+    description: "Our 180GSM soft and breathable baby tee is tailored for the perfect snug fit.It hugs your curves just right while keeping you comfy all day long.",
+    sizes: ["XS", "S", "M", "L"],
+  },
+  {
+    id: 13,
+    name: "Customizable Tote Bag",
+    price: 899,
+    category: "accessories",
+    image: "/catalogue/13_1.jpeg",
+    images: [
+      "/catalogue/13_1.jpeg",
+      "/catalogue/13_2.jpeg",
+      "/catalogue/13_3.jpeg"
+    ],
+    description: "A durable and stylish canvas tote bag for your everyday essentials.",
+    sizes: ["One Size"],
   },
 ]
 export default products;
@@ -303,8 +320,8 @@ export const categories = [
   { id: "tshirts", label: "T-shirts" },
   { id: "bottoms", label: "Bottoms" },
   { id: "dresses", label: "Dresses" },
-  { id: "accessories", label: "Accessories" },
   { id: "tops", label: "Tops" },
+  { id: "accessories", label: "Accessories" },
 ];
 
 // Alias for clarity in the new category hierarchy
