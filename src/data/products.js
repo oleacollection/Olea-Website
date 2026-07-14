@@ -7,7 +7,7 @@ const products = [
     id: 1,
     name: "Money Is The Motive",
     price: 799,
-    category: "tops",
+    category: "tshirts",
     image: '/catalogue/1_1.jpeg',
     images: [
       "/catalogue/1_1.jpeg",
@@ -21,7 +21,7 @@ const products = [
     id: 2,
     name: "Pink Phantom",
     price: 799,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/2_1.jpeg",
     images: [
       "/catalogue/2_1.jpeg",
@@ -35,7 +35,7 @@ const products = [
     id: 3,
     name: "Marlboro Red",
     price: 699,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/3_1.jpeg",
     images: [
       "/catalogue/3_1.jpeg",
@@ -49,7 +49,7 @@ const products = [
     id: 4,
     name: "404: Love Found",
     price: 699,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/8_1.jpeg",
     images: [
       "/catalogue/8_1.jpeg",
@@ -63,7 +63,7 @@ const products = [
     id: 5,
     name: "God's Plan Tee",
     price: 999,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/5_1.jpeg",
     images: [
       "/catalogue/5_1.jpeg",
@@ -76,7 +76,7 @@ const products = [
     id: 6,
     name: "Waffle Tank",
     price: 499,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/6_1.jpeg",
     images: [
       "/catalogue/6_1.jpeg",
@@ -89,7 +89,7 @@ const products = [
     id: 7,
     name: "Icarus' Tee",
     price: 999,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/7_1.jpeg",
     images: [
       "/catalogue/7_1.jpeg",
@@ -102,7 +102,7 @@ const products = [
     id: 8,
     name: "Solid Tee Pair",
     price: 599,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/4_1.jpeg",
     images: [
       "/catalogue/4_1.jpeg",
@@ -115,7 +115,7 @@ const products = [
     id: 9,
     name: "Customized Oversized Tshirt",
     price: 799,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/9_1.jpeg",
     images: [
       "/catalogue/9_1.jpeg",
@@ -127,7 +127,7 @@ const products = [
     id: 10,
     name: "Women's Classic Tank Top",
     price: 399,
-    category: "tank-tops",
+    category: "tops",
     image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=800&fit=crop&q=80",
     images: [
       "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=800&fit=crop&q=80"
@@ -139,7 +139,7 @@ const products = [
     id: 11,
     name: "Women's Ribbed Tank",
     price: 499,
-    category: "tank-tops",
+    category: "tops",
     image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop&q=80",
     images: [
       "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop&q=80"
@@ -151,7 +151,7 @@ const products = [
     id: 12,
     name: "Women's Crop Tank Top",
     price: 599,
-    category: "tank-tops",
+    category: "tops",
     image: "https://images.unsplash.com/photo-1509180775533-3d758066bb73?w=600&h=800&fit=crop&q=80",
     images: [
       "https://images.unsplash.com/photo-1509180775533-3d758066bb73?w=600&h=800&fit=crop&q=80"
@@ -300,11 +300,11 @@ export const personalGiftingProducts = [
 
 export const categories = [
   { id: "all", label: "All" },
-  { id: "tops", label: "Tops" },
+  { id: "tshirts", label: "T-shirts" },
   { id: "bottoms", label: "Bottoms" },
   { id: "dresses", label: "Dresses" },
   { id: "accessories", label: "Accessories" },
-  { id: "tank-tops", label: "Tank Tops" },
+  { id: "tops", label: "Tops" },
 ];
 
 // Alias for clarity in the new category hierarchy
