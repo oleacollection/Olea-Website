@@ -142,6 +142,7 @@ export default function ProductModal({ product, onClose, onGiftAnimation }) {
             src={images[activeImageIndex]}
             alt={`${product.name} - View ${activeImageIndex + 1}`}
             className="product-modal__image"
+            style={product.category === 'accessories' ? { objectFit: 'contain' } : undefined}
           />
           <span className="product-modal__badge">
             {isPersonal ? "personal" : isCorporate ? "corporate" : product.category}

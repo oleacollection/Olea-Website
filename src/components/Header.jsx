@@ -3,7 +3,7 @@ import { categories } from "../data/products";
 import { mainCategories } from "../data/products"; // Still needed for currentMainCat lookup
 
 // Only show these subcategories for now — add more IDs here to enable them
-const visibleSubcategoryIds = ["all", "tops"];
+const visibleSubcategoryIds = ["all", "tshirts", "tops", "accessories"];
 const visibleCategories = categories.filter((c) => visibleSubcategoryIds.includes(c.id));
 
 export default function Header({

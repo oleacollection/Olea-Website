@@ -7,7 +7,7 @@ const products = [
     id: 1,
     name: "Money Is The Motive",
     price: 799,
-    category: "tops",
+    category: "tshirts",
     image: '/catalogue/1_1.jpeg',
     images: [
       "/catalogue/1_1.jpeg",
@@ -21,7 +21,7 @@ const products = [
     id: 2,
     name: "Pink Phantom",
     price: 799,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/2_1.jpeg",
     images: [
       "/catalogue/2_1.jpeg",
@@ -35,7 +35,7 @@ const products = [
     id: 3,
     name: "Marlboro Red",
     price: 699,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/3_1.jpeg",
     images: [
       "/catalogue/3_1.jpeg",
@@ -49,7 +49,7 @@ const products = [
     id: 4,
     name: "404: Love Found",
     price: 699,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/8_1.jpeg",
     images: [
       "/catalogue/8_1.jpeg",
@@ -63,7 +63,7 @@ const products = [
     id: 5,
     name: "God's Plan Tee",
     price: 999,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/5_1.jpeg",
     images: [
       "/catalogue/5_1.jpeg",
@@ -76,7 +76,7 @@ const products = [
     id: 6,
     name: "Waffle Tank",
     price: 499,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/6_1.jpeg",
     images: [
       "/catalogue/6_1.jpeg",
@@ -89,7 +89,7 @@ const products = [
     id: 7,
     name: "Icarus' Tee",
     price: 999,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/7_1.jpeg",
     images: [
       "/catalogue/7_1.jpeg",
@@ -102,7 +102,7 @@ const products = [
     id: 8,
     name: "Solid Tee Pair",
     price: 599,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/4_1.jpeg",
     images: [
       "/catalogue/4_1.jpeg",
@@ -115,7 +115,7 @@ const products = [
     id: 9,
     name: "Customized Oversized Tshirt",
     price: 799,
-    category: "tops",
+    category: "tshirts",
     image: "/catalogue/9_1.jpeg",
     images: [
       "/catalogue/9_1.jpeg",
@@ -123,7 +123,59 @@ const products = [
     description: "Create an oversized tee that’s 100% you. Add your own text, graphics, memories, inside jokes, or whatever lives rent-free in your head",
     sizes: ["S", "M", "L", "XL"],
   },
-  
+  {
+    id: 10,
+    name: "White Baby-Tee",
+    price: 499,
+    category: "tops",
+    image: "/catalogue/10_1.jpeg",
+    images: [
+      "/catalogue/10_1.jpeg",
+      "/catalogue/10_2.jpeg",
+    ],
+    description: "Our 180GSM soft and breathable baby tee is tailored for the perfect snug fit. It hugs your curves just right while keeping you comfy all day long.",
+    sizes: ["XS", "S", "M", "L"],
+  },
+  {
+    id: 11,
+    name: "Yellow Baby-Tee",
+    price: 499,
+    category: "tops",
+    image: "/catalogue/11_1.jpeg",
+    images: [
+      "/catalogue/11_1.jpeg",
+      "/catalogue/11_2.jpeg",
+    ],
+    description: "Our 180GSM soft and breathable baby tee is tailored for the perfect snug fit. It hugs your curves just right while keeping you comfy all day long.",
+    sizes: ["XS", "S", "M", "L"],
+  },
+  {
+    id: 12,
+    name: "Pink Baby-Tee",
+    price: 499,
+    category: "tops",
+    image: "/catalogue/12_1.jpeg",
+    images: [
+      "/catalogue/12_1.jpeg",
+      "/catalogue/12_2.jpeg",
+    ],
+    description: "Our 180GSM soft and breathable baby tee is tailored for the perfect snug fit.It hugs your curves just right while keeping you comfy all day long.",
+    sizes: ["XS", "S", "M", "L"],
+  },
+  {
+    id: 13,
+    name: "Customizable Tote Bag",
+    price: 299,
+    category: "accessories",
+    image: "/catalogue/13_1.jpeg",
+    images: [
+      "/catalogue/13_1.jpeg",
+      "/catalogue/13_2.jpeg",
+      "/catalogue/13_3.jpeg"
+    ],
+    description: "A durable and stylish customizable canvas tote bag for your everyday essentials.",
+    sizes: ["One Size"],
+  },
 ]
 export default products;
 
@@ -265,9 +317,10 @@ export const personalGiftingProducts = [
 
 export const categories = [
   { id: "all", label: "All" },
-  { id: "tops", label: "Tops" },
+  { id: "tshirts", label: "T-shirts" },
   { id: "bottoms", label: "Bottoms" },
   { id: "dresses", label: "Dresses" },
+  { id: "tops", label: "Tops" },
   { id: "accessories", label: "Accessories" },
 ];
 
