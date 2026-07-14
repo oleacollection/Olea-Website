@@ -165,7 +165,7 @@ const products = [
   {
     id: 13,
     name: "Customizable Tote Bag",
-    price: 899,
+    price: 299,
     category: "accessories",
     image: "/catalogue/13_1.jpeg",
     images: [
@@ -173,7 +173,7 @@ const products = [
       "/catalogue/13_2.jpeg",
       "/catalogue/13_3.jpeg"
     ],
-    description: "A durable and stylish canvas tote bag for your everyday essentials.",
+    description: "A durable and stylish customizable canvas tote bag for your everyday essentials.",
     sizes: ["One Size"],
   },
 ]
