@@ -185,7 +185,7 @@ export default function EventModal({ onClose }) {
                     <span className="info-icon">📅</span>
                     <div>
                       <strong>Date & Time</strong>
-                      <p>Saturday, 16th Aug 2026 • 3:00 PM – 7:00 PM</p>
+                      <p>Saturday, 16th Aug 2026</p>
                     </div>
                   </div>
 
@@ -193,7 +193,7 @@ export default function EventModal({ onClose }) {
                     <span className="info-icon">📍</span>
                     <div>
                       <strong>Venue & Location</strong>
-                      <p>Delilah's Cafe, Bandra West, Mumbai</p>
+                      <p>Delilah's Cafe, Delhi</p>
                     </div>
                   </div>
                 </div>
