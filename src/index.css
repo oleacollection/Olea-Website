@@ -2732,3 +2732,987 @@ body.drawer-open {
     transform: scale(0.95) translateY(10px);
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   RETRO EVENT POPUP NOTIFICATION & EVENT MODAL
+   ═══════════════════════════════════════════════════ */
+
+/* Mobile backdrop overlay for notification */
+.event-notification-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  z-index: 980;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .event-notification-overlay.visible {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Main Notification Popup Container */
+.event-notification-popup {
+  position: fixed;
+  z-index: 990;
+  background: #FAF6EE;
+  border: 3px solid #E892B7;
+  box-shadow: 4px 4px 0px rgba(44, 31, 20, 0.25), 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, box-shadow 0.2s ease;
+}
+
+/* Desktop: Top Right Corner */
+@media (min-width: 769px) {
+  .event-notification-popup {
+    top: 96px;
+    right: 24px;
+    width: 310px;
+    transform: translateY(-20px) scale(0.95);
+  }
+
+  .event-notification-popup.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .event-notification-popup:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 6px 6px 0px #E892B7, 0 16px 36px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Mobile: Center of the Screen */
+@media (max-width: 768px) {
+  .event-notification-popup {
+    top: 50%;
+    left: 50%;
+    width: min(90vw, 340px);
+    transform: translate(-50%, -45%) scale(0.92);
+  }
+
+  .event-notification-popup.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Notification Header Bar */
+.event-popup-header {
+  background: linear-gradient(90deg, #E892B7, #F4B8D3);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #D47BA1;
+}
+
+.event-popup-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #2C1F14;
+  text-transform: uppercase;
+}
+
+.event-badge-icon {
+  font-size: 0.9rem;
+}
+
+.event-popup-close-btn {
+  background: #FAF6EE;
+  border: 1.5px solid #2C1F14;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #2C1F14;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.event-popup-close-btn:hover {
+  background: #FF4757;
+  color: #FFFFFF;
+  border-color: #FF4757;
+}
+
+/* Image Wrapper */
+.event-popup-body {
+  padding: 8px;
+  background: #FAF6EE;
+}
+
+.event-popup-img-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #E892B7;
+  background: #FFF;
+}
+
+.event-popup-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-notification-popup:hover .event-popup-img {
+  transform: scale(1.03);
+}
+
+.event-popup-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 31, 20, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.event-notification-popup:hover .event-popup-hover-overlay {
+  opacity: 1;
+}
+
+.event-popup-cta-btn {
+  background: #E892B7;
+  color: #2C1F14;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 2px solid #2C1F14;
+  box-shadow: 2px 2px 0px #2C1F14;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Footer Bar inside notification */
+.event-popup-footer-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px 2px 4px;
+}
+
+.event-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #27AE60;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+  animation: pulseGreen 1.8s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(39, 174, 96, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(39, 174, 96, 0);
+  }
+}
+
+.event-footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #6B5240;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Re-open Floating Action Button */
+.event-ticket-fab {
+  position: fixed;
+  bottom: 86px;
+  right: 20px;
+  z-index: 850;
+  background: linear-gradient(135deg, #E892B7, #F4B8D3);
+  color: #2C1F14;
+  border: 2px solid #2C1F14;
+  border-radius: 30px;
+  padding: 10px 16px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 3px 3px 0px #2C1F14, 0 6px 16px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-ticket-fab:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 4px 4px 0px #2C1F14, 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* ═══════════════════════════════════════════════════
+   EVENT DETAILS & TICKET MODAL STYLING
+   ═══════════════════════════════════════════════════ */
+
+.event-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.event-modal-backdrop.closing {
+  animation: fadeOut 0.25s ease forwards;
+}
+
+.event-modal-container {
+  background: #FAF6EE;
+  border: 3px solid #2C1F14;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 8px 8px 0px #E892B7, 0 20px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.event-modal-container.closing {
+  animation: modalLeave 0.25s ease forwards;
+}
+
+/* Retro Window Bar */
+.event-modal-window-bar {
+  background: linear-gradient(90deg, #E892B7, #F4B8D3);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #2C1F14;
+}
+
+.event-window-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.event-window-icon {
+  font-size: 1.1rem;
+}
+
+.event-window-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #2C1F14;
+  margin: 0;
+}
+
+.event-window-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.event-win-btn {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid #2C1F14;
+  border-radius: 4px;
+  background: #FAF6EE;
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #2C1F14;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.event-win-btn:hover {
+  background: #E892B7;
+}
+
+.event-win-btn.win-close:hover {
+  background: #FF4757;
+  color: #FFF;
+  border-color: #FF4757;
+}
+
+/* Menu Bar */
+.event-modal-menubar {
+  background: #E8DDD0;
+  padding: 4px 16px;
+  display: flex;
+  gap: 16px;
+  border-bottom: 1.5px solid #D4C4A8;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #4A3728;
+  font-weight: 500;
+}
+
+/* Body Scroll Area */
+.event-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Details Layout Grid */
+.event-details-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 28px;
+}
+
+@media (max-width: 768px) {
+  .event-details-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.event-graphic-card {
+  border: 3px solid #2C1F14;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 4px 4px 0px #E892B7;
+  background: #FFF;
+}
+
+.event-graphic-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.event-quick-info {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event-info-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #FFF;
+  border: 1.5px solid #E8DDD0;
+  border-radius: 10px;
+  padding: 10px 12px;
+
+  strong {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #2C1F14;
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem;
+    color: #6B5240;
+    margin: 2px 0 0 0;
+    line-height: 1.35;
+  }
+}
+
+.event-info-pill.perk-highlight {
+  background: #FFF5F9;
+  border-color: #E892B7;
+}
+
+/* Right Booking Column */
+.event-head-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #8B6F4E;
+  margin-bottom: 6px;
+}
+
+.retro-star {
+  color: #E892B7;
+}
+
+.event-main-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2C1F14;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.event-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #4A3728;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.section-label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #2C1F14;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+/* Ticket Tiers Cards */
+.ticket-tier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ticket-tier-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 2px solid #E8DDD0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ticket-tier-card:hover {
+  border-color: #E892B7;
+  transform: translateY(-1px);
+}
+
+.ticket-tier-card.selected {
+  border-color: #2C1F14;
+  background: #FFF5F9;
+  box-shadow: 3px 3px 0px #E892B7;
+}
+
+.tier-radio {
+  margin-top: 2px;
+  
+  input[type="radio"] {
+    accent-color: #E892B7;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+}
+
+.tier-content {
+  flex: 1;
+}
+
+.tier-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tier-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2C1F14;
+  margin: 0;
+}
+
+.tier-price {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #2C1F14;
+}
+
+.tier-badge {
+  display: inline-block;
+  background: #E892B7;
+  color: #2C1F14;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin: 4px 0 6px 0;
+  letter-spacing: 0.04em;
+}
+
+.tier-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: #6B5240;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Quantity Control Bar */
+.quantity-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #E8DDD0;
+  padding: 8px 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  .section-label {
+    margin-bottom: 0;
+  }
+}
+
+.quantity-control-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1.5px solid #2C1F14;
+  background: #FFF;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2C1F14;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.qty-btn:hover:not(:disabled) {
+  background: #E892B7;
+}
+
+.qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.qty-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #2C1F14;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Total Summary & CTA */
+.total-summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 10px;
+  border-top: 2px dashed #D4C4A8;
+}
+
+.total-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6B5240;
+}
+
+.total-price-display {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2C1F14;
+  line-height: 1;
+}
+
+.event-cta-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 2px solid #2C1F14;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-cta-btn.primary {
+  background: #E892B7;
+  color: #2C1F14;
+  box-shadow: 3px 3px 0px #2C1F14;
+}
+
+.event-cta-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #2C1F14;
+  background: #F4B8D3;
+}
+
+.event-cta-btn.secondary {
+  background: #FFF;
+  color: #2C1F14;
+  box-shadow: 2px 2px 0px #2C1F14;
+}
+
+.event-cta-btn.secondary:hover {
+  background: #E8DDD0;
+}
+
+/* ═══════════════════════════════════════════════════
+   CHECKOUT & CONFIRMED TICKETS PASS
+   ═══════════════════════════════════════════════════ */
+
+.event-back-link {
+  background: none;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #8B6F4E;
+  cursor: pointer;
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+.event-back-link:hover {
+  color: #2C1F14;
+  text-decoration: underline;
+}
+
+.checkout-header {
+  margin-bottom: 20px;
+
+  h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #2C1F14;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #6B5240;
+  }
+}
+
+.attendee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #2C1F14;
+  }
+
+  input {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    border: 2px solid #D4C4A8;
+    border-radius: 8px;
+    background: #FFF;
+    color: #2C1F14;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  input:focus {
+    border-color: #E892B7;
+    box-shadow: 0 0 0 3px rgba(232, 146, 183, 0.25);
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: #8B6F4E;
+}
+
+.checkout-summary-box {
+  background: #FFF;
+  border: 2px solid #2C1F14;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: #4A3728;
+}
+
+.summary-line.perk-line {
+  color: #27AE60;
+  font-weight: 600;
+}
+
+.summary-line.total-final {
+  padding-top: 8px;
+  border-top: 1.5px dashed #D4C4A8;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  color: #2C1F14;
+}
+
+.form-action-row {
+  display: flex;
+  gap: 12px;
+
+  button {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+.cart-toast-banner {
+  background: #D5E8D4;
+  color: #27AE60;
+  border: 1.5px solid #27AE60;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Digital Ticket Pass */
+.event-confirmed-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.confirmed-badge-header {
+  text-align: center;
+
+  .success-check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: #27AE60;
+    color: #FFF;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 50%;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2C1F14;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: #6B5240;
+  }
+}
+
+.digital-ticket-pass {
+  background: #FFF;
+  border: 3px solid #2C1F14;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 6px 6px 0px #E892B7;
+  overflow: hidden;
+}
+
+.ticket-pass-header {
+  background: linear-gradient(90deg, #E892B7, #F4B8D3);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #2C1F14;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  color: #2C1F14;
+  font-size: 0.82rem;
+}
+
+.ticket-pass-body {
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 16px;
+  align-items: center;
+}
+
+.ticket-main-details {
+  h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #2C1F14;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #4A3728;
+    margin-bottom: 4px;
+  }
+}
+
+.ticket-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+  background: #FAF6EE;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #E8DDD0;
+
+  span {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.62rem;
+    color: #8B6F4E;
+    font-weight: 700;
+  }
+
+  strong {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    color: #2C1F14;
+  }
+}
+
+.ticket-qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.qr-code-box {
+  background: #FFF;
+  border: 2px solid #2C1F14;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.qr-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #6B5240;
+}
+
+.ticket-pass-footer {
+  background: #2C1F14;
+  color: #FAF6EE;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+}
+
+.confirmed-actions {
+  display: flex;
+  gap: 12px;
+}

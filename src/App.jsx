@@ -10,6 +10,8 @@ import CartFAB from "./components/CartFAB";
 import Footer from "./components/Footer";
 import GiftBoxAnimation from "./components/GiftBoxAnimation";
 import ProductModal from "./components/ProductModal";
+import EventNotification from "./components/EventNotification";
+import EventModal from "./components/EventModal";
 
 export default function App() {
   const [activeMainCategory, setActiveMainCategory] = useState("clothing");
@@ -18,6 +20,8 @@ export default function App() {
   const [heroVisible, setHeroVisible] = useState(true);
   const [giftAnimation, setGiftAnimation] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [eventNotificationDismissed, setEventNotificationDismissed] = useState(false);
+  const [eventModalOpen, setEventModalOpen] = useState(false);
   const heroRef = useRef(null);
 
 
@@ -53,19 +57,6 @@ export default function App() {
     setActiveCategory("all");
   }, []);
 
-  // Handle going back to category selector
-  // Hidden: re-enable when other categories are ready
-  // const handleBackToCategories = useCallback(() => {
-  //   setActiveMainCategory(null);
-  //   setActiveCategory("all");
-  //   setTimeout(() => {
-  //     const selector = document.getElementById("category-selector");
-  //     if (selector) {
-  //       selector.scrollIntoView({ behavior: "smooth", block: "start" });
-  //     }
-  //   }, 100);
-  // }, []);
-
   return (
     <CartProvider>
       <div className="app">
@@ -80,11 +71,6 @@ export default function App() {
         <div ref={heroRef}>
           <Hero />
         </div>
-
-        {/* Category selector — hidden until other categories are ready */}
-        {/* {!activeMainCategory && (
-          <CategorySelector onSelectCategory={handleSelectMainCategory} />
-        )} */}
 
         {/* Clothing: show product grid with subcategory filters */}
         {activeMainCategory === "clothing" && (
@@ -102,16 +88,32 @@ export default function App() {
           <GiftingProductGrid
             categoryId={activeMainCategory}
             onOpenModal={setSelectedProduct}
-            onBack={handleBackToCategories}
+            onBack={null}
           />
         )}
 
         <Footer />
+
+        {/* Floating Ticket FAB when notification popup is dismissed */}
+        {eventNotificationDismissed && !eventModalOpen && (
+          <button
+            className="event-ticket-fab"
+            onClick={() => setEventModalOpen(true)}
+            title="Pick N Press Event Tickets"
+            aria-label="Open Pick N Press Event Tickets"
+          >
+            <span className="fab-ticket-icon">🎟️</span>
+            <span className="fab-ticket-text">Event Tickets</span>
+          </button>
+        )}
+
         <CartFAB onClick={() => setCartOpen(true)} />
+
         <CartDrawer
           isOpen={cartOpen}
           onClose={() => setCartOpen(false)}
         />
+
         {selectedProduct && (
           <ProductModal
             product={selectedProduct}
@@ -119,11 +121,26 @@ export default function App() {
             onGiftAnimation={handleGiftAnimation}
           />
         )}
+
         <GiftBoxAnimation
           animationData={giftAnimation}
           onComplete={handleGiftComplete}
         />
+
+        {/* Retro Pick N Press Event Popup Notification */}
+        {!eventNotificationDismissed && (
+          <EventNotification
+            onOpenModal={() => setEventModalOpen(true)}
+            onDismiss={() => setEventNotificationDismissed(true)}
+          />
+        )}
+
+        {/* Event Details & Ticket Purchasing Modal */}
+        {eventModalOpen && (
+          <EventModal onClose={() => setEventModalOpen(false)} />
+        )}
       </div>
     </CartProvider>
   );
 }
+

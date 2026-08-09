@@ -39,3 +39,32 @@ export function openWhatsApp(cartItems, total) {
   const url = `https://wa.me/${OWNER_PHONE}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
+
+/**
+ * Open WhatsApp with pre-filled Pick N Press Event ticket booking message
+ */
+export function openEventWhatsAppBooking({ tierName, quantity, totalPrice, name, email, phone, bookingRef }) {
+  const message = [
+    "🎟️ *Pick N Press Event Ticket Booking*",
+    "━━━━━━━━━━━━━━━━━━━━",
+    `*Event:* PICK N PRESS — DIY Tote & Patch Workshop`,
+    `*Date:* Saturday, 16th Aug 2026 (3:00 PM - 7:00 PM)`,
+    `*Venue:* Delilah's Cafe, Bandra West, Mumbai`,
+    `*Booking Ref:* #${bookingRef}`,
+    "━━━━━━━━━━━━━━━━━━━━",
+    `*Ticket Tier:* ${tierName}`,
+    `*Quantity:* ${quantity}`,
+    `*Total Amount:* ₹${totalPrice.toLocaleString("en-IN")}`,
+    "━━━━━━━━━━━━━━━━━━━━",
+    "👤 *Attendee Details:*",
+    `*Name:* ${name}`,
+    `*Email:* ${email}`,
+    phone ? `*Phone:* ${phone}` : null,
+    "",
+    "Hi Olea Team! I would like to confirm my ticket booking for the Pick N Press event."
+  ].filter(Boolean).join("\n");
+
+  const url = `https://wa.me/${OWNER_PHONE}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}
+
